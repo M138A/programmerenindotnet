@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost:46131/CryptoBankWebService" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://localhost:46131/CryptoBankWebService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost:46131/CryptoBankWebService">
+      <s:element name="ValidateLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValidateLoginResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserByLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserByLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserByLoginResult" type="tns:UserModel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UserModel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="accountnumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="balance" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegisterUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="tns:UserModel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterUserResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="TransferMoney">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="amountOfBitCoins" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="receiverAccountNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senderAccountNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TransferMoneyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TransferMoneyResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AllUsers">
+        <s:complexType />
+      </s:element>
+      <s:element name="AllUsersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AllUsersResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AllTransactions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accountNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AllTransactionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AllTransactionsResult" type="tns:ArrayOfTransactionModel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTransactionModel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TransactionModel" nillable="true" type="tns:TransactionModel" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TransactionModel">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="transactionnumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="transactiontype" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="date" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sender" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="receiver" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TransactionsPerType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accountNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TransactionsPerTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TransactionsPerTypeResult" type="tns:ArrayOfTransactionModel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TransactionsPerSender">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sender" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TransactionsPerSenderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TransactionsPerSenderResult" type="tns:ArrayOfTransactionModel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TransactionsPerReceiver">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="receiver" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TransactionsPerReceiverResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TransactionsPerReceiverResult" type="tns:ArrayOfTransactionModel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Finduser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accountNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FinduserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FinduserResult" type="tns:ArrayOfUserModel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfUserModel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="UserModel" nillable="true" type="tns:UserModel" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DeleteUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userAccountnumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteUserResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ValidateLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateLogin" />
+  </wsdl:message>
+  <wsdl:message name="ValidateLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserByLogin" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserByLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegisterUserSoapIn">
+    <wsdl:part name="parameters" element="tns:RegisterUser" />
+  </wsdl:message>
+  <wsdl:message name="RegisterUserSoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="TransferMoneySoapIn">
+    <wsdl:part name="parameters" element="tns:TransferMoney" />
+  </wsdl:message>
+  <wsdl:message name="TransferMoneySoapOut">
+    <wsdl:part name="parameters" element="tns:TransferMoneyResponse" />
+  </wsdl:message>
+  <wsdl:message name="AllUsersSoapIn">
+    <wsdl:part name="parameters" element="tns:AllUsers" />
+  </wsdl:message>
+  <wsdl:message name="AllUsersSoapOut">
+    <wsdl:part name="parameters" element="tns:AllUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="AllTransactionsSoapIn">
+    <wsdl:part name="parameters" element="tns:AllTransactions" />
+  </wsdl:message>
+  <wsdl:message name="AllTransactionsSoapOut">
+    <wsdl:part name="parameters" element="tns:AllTransactionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="TransactionsPerTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:TransactionsPerType" />
+  </wsdl:message>
+  <wsdl:message name="TransactionsPerTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:TransactionsPerTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="TransactionsPerSenderSoapIn">
+    <wsdl:part name="parameters" element="tns:TransactionsPerSender" />
+  </wsdl:message>
+  <wsdl:message name="TransactionsPerSenderSoapOut">
+    <wsdl:part name="parameters" element="tns:TransactionsPerSenderResponse" />
+  </wsdl:message>
+  <wsdl:message name="TransactionsPerReceiverSoapIn">
+    <wsdl:part name="parameters" element="tns:TransactionsPerReceiver" />
+  </wsdl:message>
+  <wsdl:message name="TransactionsPerReceiverSoapOut">
+    <wsdl:part name="parameters" element="tns:TransactionsPerReceiverResponse" />
+  </wsdl:message>
+  <wsdl:message name="FinduserSoapIn">
+    <wsdl:part name="parameters" element="tns:Finduser" />
+  </wsdl:message>
+  <wsdl:message name="FinduserSoapOut">
+    <wsdl:part name="parameters" element="tns:FinduserResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteUserSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="DeleteUserSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CryptoBankServiceSoap">
+    <wsdl:operation name="ValidateLogin">
+      <wsdl:input message="tns:ValidateLoginSoapIn" />
+      <wsdl:output message="tns:ValidateLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByLogin">
+      <wsdl:input message="tns:GetUserByLoginSoapIn" />
+      <wsdl:output message="tns:GetUserByLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterUser">
+      <wsdl:input message="tns:RegisterUserSoapIn" />
+      <wsdl:output message="tns:RegisterUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TransferMoney">
+      <wsdl:input message="tns:TransferMoneySoapIn" />
+      <wsdl:output message="tns:TransferMoneySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AllUsers">
+      <wsdl:input message="tns:AllUsersSoapIn" />
+      <wsdl:output message="tns:AllUsersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AllTransactions">
+      <wsdl:input message="tns:AllTransactionsSoapIn" />
+      <wsdl:output message="tns:AllTransactionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TransactionsPerType">
+      <wsdl:input message="tns:TransactionsPerTypeSoapIn" />
+      <wsdl:output message="tns:TransactionsPerTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TransactionsPerSender">
+      <wsdl:input message="tns:TransactionsPerSenderSoapIn" />
+      <wsdl:output message="tns:TransactionsPerSenderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TransactionsPerReceiver">
+      <wsdl:input message="tns:TransactionsPerReceiverSoapIn" />
+      <wsdl:output message="tns:TransactionsPerReceiverSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Finduser">
+      <wsdl:input message="tns:FinduserSoapIn" />
+      <wsdl:output message="tns:FinduserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input message="tns:DeleteUserSoapIn" />
+      <wsdl:output message="tns:DeleteUserSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CryptoBankServiceSoap" type="tns:CryptoBankServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ValidateLogin">
+      <soap:operation soapAction="http://localhost:46131/CryptoBankWebService/ValidateLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByLogin">
+      <soap:operation soapAction="http://localhost:46131/CryptoBankWebService/GetUserByLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterUser">
+      <soap:operation soapAction="http://localhost:46131/CryptoBankWebService/RegisterUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransferMoney">
+      <soap:operation soapAction="http://localhost:46131/CryptoBankWebService/TransferMoney" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AllUsers">
+      <soap:operation soapAction="http://localhost:46131/CryptoBankWebService/AllUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AllTransactions">
+      <soap:operation soapAction="http://localhost:46131/CryptoBankWebService/AllTransactions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionsPerType">
+      <soap:operation soapAction="http://localhost:46131/CryptoBankWebService/TransactionsPerType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionsPerSender">
+      <soap:operation soapAction="http://localhost:46131/CryptoBankWebService/TransactionsPerSender" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionsPerReceiver">
+      <soap:operation soapAction="http://localhost:46131/CryptoBankWebService/TransactionsPerReceiver" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Finduser">
+      <soap:operation soapAction="http://localhost:46131/CryptoBankWebService/Finduser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="http://localhost:46131/CryptoBankWebService/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CryptoBankServiceSoap12" type="tns:CryptoBankServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ValidateLogin">
+      <soap12:operation soapAction="http://localhost:46131/CryptoBankWebService/ValidateLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByLogin">
+      <soap12:operation soapAction="http://localhost:46131/CryptoBankWebService/GetUserByLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterUser">
+      <soap12:operation soapAction="http://localhost:46131/CryptoBankWebService/RegisterUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransferMoney">
+      <soap12:operation soapAction="http://localhost:46131/CryptoBankWebService/TransferMoney" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AllUsers">
+      <soap12:operation soapAction="http://localhost:46131/CryptoBankWebService/AllUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AllTransactions">
+      <soap12:operation soapAction="http://localhost:46131/CryptoBankWebService/AllTransactions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionsPerType">
+      <soap12:operation soapAction="http://localhost:46131/CryptoBankWebService/TransactionsPerType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionsPerSender">
+      <soap12:operation soapAction="http://localhost:46131/CryptoBankWebService/TransactionsPerSender" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionsPerReceiver">
+      <soap12:operation soapAction="http://localhost:46131/CryptoBankWebService/TransactionsPerReceiver" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Finduser">
+      <soap12:operation soapAction="http://localhost:46131/CryptoBankWebService/Finduser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap12:operation soapAction="http://localhost:46131/CryptoBankWebService/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CryptoBankService">
+    <wsdl:port name="CryptoBankServiceSoap" binding="tns:CryptoBankServiceSoap">
+      <soap:address location="http://localhost:46131/CryptoBankService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CryptoBankServiceSoap12" binding="tns:CryptoBankServiceSoap12">
+      <soap12:address location="http://localhost:46131/CryptoBankService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

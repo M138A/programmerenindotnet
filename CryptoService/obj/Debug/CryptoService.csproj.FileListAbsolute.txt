@@ -1,0 +1,6 @@
+C:\Users\MarkGame\Source\Workspaces\My First Project\CryptoBank\CryptoService\bin\CryptoService.dll.config
+C:\Users\MarkGame\Source\Workspaces\My First Project\CryptoBank\CryptoService\bin\CryptoService.dll
+C:\Users\MarkGame\Source\Workspaces\My First Project\CryptoBank\CryptoService\bin\CryptoService.pdb
+C:\Users\MarkGame\Source\Workspaces\My First Project\CryptoBank\CryptoService\obj\Debug\CryptoService.csprojResolveAssemblyReference.cache
+C:\Users\MarkGame\Source\Workspaces\My First Project\CryptoBank\CryptoService\obj\Debug\CryptoService.dll
+C:\Users\MarkGame\Source\Workspaces\My First Project\CryptoBank\CryptoService\obj\Debug\CryptoService.pdb

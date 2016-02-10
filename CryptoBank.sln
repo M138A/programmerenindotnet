@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoBank", "CryptoBank\CryptoBank.csproj", "{4F1C03EE-98DB-4512-A426-9B62FB058763}"
+	ProjectSection(ProjectDependencies) = postProject
+		{197C64E1-1C2C-4273-9BE4-D970F54FA818} = {197C64E1-1C2C-4273-9BE4-D970F54FA818}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebService", "WebService\WebService.csproj", "{197C64E1-1C2C-4273-9BE4-D970F54FA818}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminApplication", "AdminApplication\AdminApplication.csproj", "{F9359AAF-7582-4A7B-BFEF-305340045AE0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F1C03EE-98DB-4512-A426-9B62FB058763}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F1C03EE-98DB-4512-A426-9B62FB058763}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F1C03EE-98DB-4512-A426-9B62FB058763}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F1C03EE-98DB-4512-A426-9B62FB058763}.Release|Any CPU.Build.0 = Release|Any CPU
+		{197C64E1-1C2C-4273-9BE4-D970F54FA818}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{197C64E1-1C2C-4273-9BE4-D970F54FA818}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{197C64E1-1C2C-4273-9BE4-D970F54FA818}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{197C64E1-1C2C-4273-9BE4-D970F54FA818}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9359AAF-7582-4A7B-BFEF-305340045AE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9359AAF-7582-4A7B-BFEF-305340045AE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9359AAF-7582-4A7B-BFEF-305340045AE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9359AAF-7582-4A7B-BFEF-305340045AE0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://gvh1993.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = WebService\\WebService.csproj
+		SccProjectName1 = WebService
+		SccLocalPath1 = WebService
+		SccProjectUniqueName2 = CryptoBank\\CryptoBank.csproj
+		SccProjectName2 = CryptoBank
+		SccLocalPath2 = CryptoBank
+		SccProjectUniqueName3 = AdminApplication\\AdminApplication.csproj
+		SccProjectName3 = AdminApplication
+		SccLocalPath3 = AdminApplication
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://gvh1993.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = CryptoBank\\CryptoBank.csproj
+		SccProjectName1 = CryptoBank
+		SccLocalPath1 = CryptoBank
+		SccProjectUniqueName2 = WebService\\WebService.csproj
+		SccProjectName2 = WebService
+		SccLocalPath2 = WebService
+		SccProjectUniqueName3 = AdminApplication\\AdminApplication.csproj
+		SccProjectName3 = AdminApplication
+		SccLocalPath3 = AdminApplication
+	EndGlobalSection
+EndGlobal

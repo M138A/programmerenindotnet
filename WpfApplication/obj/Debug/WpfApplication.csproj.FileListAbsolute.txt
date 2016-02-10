@@ -1,0 +1,14 @@
+C:\Users\MarkGame\Source\Workspaces\My First Project\CryptoBank\WpfApplication\bin\Debug\WpfApplication.exe.config
+C:\Users\MarkGame\Source\Workspaces\My First Project\CryptoBank\WpfApplication\bin\Debug\WpfApplication.exe
+C:\Users\MarkGame\Source\Workspaces\My First Project\CryptoBank\WpfApplication\bin\Debug\WpfApplication.pdb
+C:\Users\MarkGame\Source\Workspaces\My First Project\CryptoBank\WpfApplication\obj\Debug\WpfApplication.csprojResolveAssemblyReference.cache
+C:\Users\MarkGame\Source\Workspaces\My First Project\CryptoBank\WpfApplication\obj\Debug\MainWindow.g.cs
+C:\Users\MarkGame\Source\Workspaces\My First Project\CryptoBank\WpfApplication\obj\Debug\App.g.cs
+C:\Users\MarkGame\Source\Workspaces\My First Project\CryptoBank\WpfApplication\obj\Debug\WpfApplication_MarkupCompile.cache
+C:\Users\MarkGame\Source\Workspaces\My First Project\CryptoBank\WpfApplication\obj\Debug\WpfApplication_MarkupCompile.lref
+C:\Users\MarkGame\Source\Workspaces\My First Project\CryptoBank\WpfApplication\obj\Debug\MainWindow.baml
+C:\Users\MarkGame\Source\Workspaces\My First Project\CryptoBank\WpfApplication\obj\Debug\WpfApplication.g.resources
+C:\Users\MarkGame\Source\Workspaces\My First Project\CryptoBank\WpfApplication\obj\Debug\WpfApplication.Properties.Resources.resources
+C:\Users\MarkGame\Source\Workspaces\My First Project\CryptoBank\WpfApplication\obj\Debug\WpfApplication.csproj.GenerateResource.Cache
+C:\Users\MarkGame\Source\Workspaces\My First Project\CryptoBank\WpfApplication\obj\Debug\WpfApplication.exe
+C:\Users\MarkGame\Source\Workspaces\My First Project\CryptoBank\WpfApplication\obj\Debug\WpfApplication.pdb

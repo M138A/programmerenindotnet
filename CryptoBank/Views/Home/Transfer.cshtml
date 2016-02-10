@@ -1,0 +1,26 @@
+﻿@model CryptoBank.Models.TransferModel
+@{
+    ViewBag.Title = "Transfer Money";
+}
+
+
+<h2>Transfer Money</h2>
+@Html.Raw(ViewBag.Message)
+@using (Html.BeginForm("ProcessTransfer", "Home"))
+{
+    <div id="wrapper" style="clear:both; height:100px;">
+        <div style="float:left; height:50px; ">
+            @Html.LabelFor(model => model.receiverAccountNumber, "Account Number receiver")<br/>
+            @Html.LabelFor(model => model.receivername, "Name receiver")<br/>
+            @Html.LabelFor(model => model.receiverAmount, "Amount")<br />
+        
+            <input type="submit" style="float:left; margin-left:100px;" value="Transfer" /><br />
+        </div>
+        <div style="float:left; width:100px; height:50px;">
+            @Html.TextBoxFor(model => model.receiverAccountNumber)<br />
+            @Html.TextBoxFor(model => model.receivername)<br />
+            @Html.TextBoxFor(model => model.receiverAmount)<br />
+         
+        </div>
+    </div>
+}
