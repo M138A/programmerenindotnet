@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoBank", "CryptoBank\CryptoBank.csproj", "{4F1C03EE-98DB-4512-A426-9B62FB058763}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -33,35 +33,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 4
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://gvh1993.visualstudio.com/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = WebService\\WebService.csproj
-		SccProjectName1 = WebService
-		SccLocalPath1 = WebService
-		SccProjectUniqueName2 = CryptoBank\\CryptoBank.csproj
-		SccProjectName2 = CryptoBank
-		SccLocalPath2 = CryptoBank
-		SccProjectUniqueName3 = AdminApplication\\AdminApplication.csproj
-		SccProjectName3 = AdminApplication
-		SccLocalPath3 = AdminApplication
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 5
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://gvh1993.visualstudio.com/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = CryptoBank\\CryptoBank.csproj
-		SccProjectName1 = CryptoBank
-		SccLocalPath1 = CryptoBank
-		SccProjectUniqueName2 = WebService\\WebService.csproj
-		SccProjectName2 = WebService
-		SccLocalPath2 = WebService
-		SccProjectUniqueName3 = AdminApplication\\AdminApplication.csproj
-		SccProjectName3 = AdminApplication
-		SccLocalPath3 = AdminApplication
 	EndGlobalSection
 EndGlobal

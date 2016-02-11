@@ -287,14 +287,14 @@ namespace CryptoBank.Cryptobankservice {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://localhost:46131/CryptoBankWebService", ConfigurationName="Cryptobankservice.CryptoBankServiceSoap")]
     public interface CryptoBankServiceSoap {
         
-        // CODEGEN: Generating message contract since element name email from namespace http://localhost:46131/CryptoBankWebService is not marked nillable
+        // CODEGEN: Generating message contract since element name accountNumber from namespace http://localhost:46131/CryptoBankWebService is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:46131/CryptoBankWebService/ValidateLogin", ReplyAction="*")]
         CryptoBank.Cryptobankservice.ValidateLoginResponse ValidateLogin(CryptoBank.Cryptobankservice.ValidateLoginRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:46131/CryptoBankWebService/ValidateLogin", ReplyAction="*")]
         System.Threading.Tasks.Task<CryptoBank.Cryptobankservice.ValidateLoginResponse> ValidateLoginAsync(CryptoBank.Cryptobankservice.ValidateLoginRequest request);
         
-        // CODEGEN: Generating message contract since element name email from namespace http://localhost:46131/CryptoBankWebService is not marked nillable
+        // CODEGEN: Generating message contract since element name accountNumber from namespace http://localhost:46131/CryptoBankWebService is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:46131/CryptoBankWebService/GetUserByLogin", ReplyAction="*")]
         CryptoBank.Cryptobankservice.GetUserByLoginResponse GetUserByLogin(CryptoBank.Cryptobankservice.GetUserByLoginRequest request);
         
@@ -389,7 +389,7 @@ namespace CryptoBank.Cryptobankservice {
     public partial class ValidateLoginRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string email;
+        public string accountNumber;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
         public string password;
@@ -397,8 +397,8 @@ namespace CryptoBank.Cryptobankservice {
         public ValidateLoginRequestBody() {
         }
         
-        public ValidateLoginRequestBody(string email, string password) {
-            this.email = email;
+        public ValidateLoginRequestBody(string accountNumber, string password) {
+            this.accountNumber = accountNumber;
             this.password = password;
         }
     }
@@ -461,7 +461,7 @@ namespace CryptoBank.Cryptobankservice {
     public partial class GetUserByLoginRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string email;
+        public string accountNumber;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
         public string password;
@@ -469,8 +469,8 @@ namespace CryptoBank.Cryptobankservice {
         public GetUserByLoginRequestBody() {
         }
         
-        public GetUserByLoginRequestBody(string email, string password) {
-            this.email = email;
+        public GetUserByLoginRequestBody(string accountNumber, string password) {
+            this.accountNumber = accountNumber;
             this.password = password;
         }
     }
@@ -1144,10 +1144,10 @@ namespace CryptoBank.Cryptobankservice {
             return base.Channel.ValidateLogin(request);
         }
         
-        public bool ValidateLogin(string email, string password) {
+        public bool ValidateLogin(string accountNumber, string password) {
             CryptoBank.Cryptobankservice.ValidateLoginRequest inValue = new CryptoBank.Cryptobankservice.ValidateLoginRequest();
             inValue.Body = new CryptoBank.Cryptobankservice.ValidateLoginRequestBody();
-            inValue.Body.email = email;
+            inValue.Body.accountNumber = accountNumber;
             inValue.Body.password = password;
             CryptoBank.Cryptobankservice.ValidateLoginResponse retVal = ((CryptoBank.Cryptobankservice.CryptoBankServiceSoap)(this)).ValidateLogin(inValue);
             return retVal.Body.ValidateLoginResult;
@@ -1158,10 +1158,10 @@ namespace CryptoBank.Cryptobankservice {
             return base.Channel.ValidateLoginAsync(request);
         }
         
-        public System.Threading.Tasks.Task<CryptoBank.Cryptobankservice.ValidateLoginResponse> ValidateLoginAsync(string email, string password) {
+        public System.Threading.Tasks.Task<CryptoBank.Cryptobankservice.ValidateLoginResponse> ValidateLoginAsync(string accountNumber, string password) {
             CryptoBank.Cryptobankservice.ValidateLoginRequest inValue = new CryptoBank.Cryptobankservice.ValidateLoginRequest();
             inValue.Body = new CryptoBank.Cryptobankservice.ValidateLoginRequestBody();
-            inValue.Body.email = email;
+            inValue.Body.accountNumber = accountNumber;
             inValue.Body.password = password;
             return ((CryptoBank.Cryptobankservice.CryptoBankServiceSoap)(this)).ValidateLoginAsync(inValue);
         }
@@ -1171,10 +1171,10 @@ namespace CryptoBank.Cryptobankservice {
             return base.Channel.GetUserByLogin(request);
         }
         
-        public CryptoBank.Cryptobankservice.UserModel GetUserByLogin(string email, string password) {
+        public CryptoBank.Cryptobankservice.UserModel GetUserByLogin(string accountNumber, string password) {
             CryptoBank.Cryptobankservice.GetUserByLoginRequest inValue = new CryptoBank.Cryptobankservice.GetUserByLoginRequest();
             inValue.Body = new CryptoBank.Cryptobankservice.GetUserByLoginRequestBody();
-            inValue.Body.email = email;
+            inValue.Body.accountNumber = accountNumber;
             inValue.Body.password = password;
             CryptoBank.Cryptobankservice.GetUserByLoginResponse retVal = ((CryptoBank.Cryptobankservice.CryptoBankServiceSoap)(this)).GetUserByLogin(inValue);
             return retVal.Body.GetUserByLoginResult;
@@ -1185,10 +1185,10 @@ namespace CryptoBank.Cryptobankservice {
             return base.Channel.GetUserByLoginAsync(request);
         }
         
-        public System.Threading.Tasks.Task<CryptoBank.Cryptobankservice.GetUserByLoginResponse> GetUserByLoginAsync(string email, string password) {
+        public System.Threading.Tasks.Task<CryptoBank.Cryptobankservice.GetUserByLoginResponse> GetUserByLoginAsync(string accountNumber, string password) {
             CryptoBank.Cryptobankservice.GetUserByLoginRequest inValue = new CryptoBank.Cryptobankservice.GetUserByLoginRequest();
             inValue.Body = new CryptoBank.Cryptobankservice.GetUserByLoginRequestBody();
-            inValue.Body.email = email;
+            inValue.Body.accountNumber = accountNumber;
             inValue.Body.password = password;
             return ((CryptoBank.Cryptobankservice.CryptoBankServiceSoap)(this)).GetUserByLoginAsync(inValue);
         }

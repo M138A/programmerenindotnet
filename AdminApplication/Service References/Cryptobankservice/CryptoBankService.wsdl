@@ -5,7 +5,7 @@
       <s:element name="ValidateLogin">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="accountNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
           </s:sequence>
         </s:complexType>
@@ -20,7 +20,7 @@
       <s:element name="GetUserByLogin">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="accountNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
           </s:sequence>
         </s:complexType>
@@ -43,16 +43,6 @@
           <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
         </s:sequence>
       </s:complexType>
-      <s:element name="RegisterUser">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="user" type="tns:UserModel" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="RegisterUserResponse">
-        <s:complexType />
-      </s:element>
       <s:element name="TransferMoney">
         <s:complexType>
           <s:sequence>
@@ -199,12 +189,6 @@
   <wsdl:message name="GetUserByLoginSoapOut">
     <wsdl:part name="parameters" element="tns:GetUserByLoginResponse" />
   </wsdl:message>
-  <wsdl:message name="RegisterUserSoapIn">
-    <wsdl:part name="parameters" element="tns:RegisterUser" />
-  </wsdl:message>
-  <wsdl:message name="RegisterUserSoapOut">
-    <wsdl:part name="parameters" element="tns:RegisterUserResponse" />
-  </wsdl:message>
   <wsdl:message name="TransferMoneySoapIn">
     <wsdl:part name="parameters" element="tns:TransferMoney" />
   </wsdl:message>
@@ -262,10 +246,6 @@
       <wsdl:input message="tns:GetUserByLoginSoapIn" />
       <wsdl:output message="tns:GetUserByLoginSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="RegisterUser">
-      <wsdl:input message="tns:RegisterUserSoapIn" />
-      <wsdl:output message="tns:RegisterUserSoapOut" />
-    </wsdl:operation>
     <wsdl:operation name="TransferMoney">
       <wsdl:input message="tns:TransferMoneySoapIn" />
       <wsdl:output message="tns:TransferMoneySoapOut" />
@@ -312,15 +292,6 @@
     </wsdl:operation>
     <wsdl:operation name="GetUserByLogin">
       <soap:operation soapAction="http://localhost:46131/CryptoBankWebService/GetUserByLogin" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="RegisterUser">
-      <soap:operation soapAction="http://localhost:46131/CryptoBankWebService/RegisterUser" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -421,15 +392,6 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="RegisterUser">
-      <soap12:operation soapAction="http://localhost:46131/CryptoBankWebService/RegisterUser" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="TransferMoney">
       <soap12:operation soapAction="http://localhost:46131/CryptoBankWebService/TransferMoney" style="document" />
       <wsdl:input>
@@ -505,10 +467,10 @@
   </wsdl:binding>
   <wsdl:service name="CryptoBankService">
     <wsdl:port name="CryptoBankServiceSoap" binding="tns:CryptoBankServiceSoap">
-      <soap:address location="http://cryptobank.azurewebsites.net/service/CryptoBankService.asmx" />
+      <soap:address location="http://localhost:46131/CryptoBankService.asmx" />
     </wsdl:port>
     <wsdl:port name="CryptoBankServiceSoap12" binding="tns:CryptoBankServiceSoap12">
-      <soap12:address location="http://cryptobank.azurewebsites.net/service/CryptoBankService.asmx" />
+      <soap12:address location="http://localhost:46131/CryptoBankService.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
