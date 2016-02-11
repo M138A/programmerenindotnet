@@ -557,7 +557,7 @@ namespace CryptoBank.Cryptobankservice {
         
         public RegisterUserResponse(CryptoBank.Cryptobankservice.RegisterUserResponseBody Body) {
             this.Body = Body;
-    }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -895,10 +895,8 @@ namespace CryptoBank.Cryptobankservice {
         
         public TransactionsPerSenderResponse(CryptoBank.Cryptobankservice.TransactionsPerSenderResponseBody Body) {
             this.Body = Body;
+        }
     }
-    }
-    
-    
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]

@@ -20,14 +20,19 @@ namespace WebService
     // [System.Web.Script.Services.ScriptService]
     public class CryptoBankService : System.Web.Services.WebService
     {
-
+        /// <summary>
+        /// This method is used to identify if the user is the real owner of the account.
+        /// </summary>
+        /// <param name="accountNumber">The account number the user typed in.</param>
+        /// <param name="password">The password the user typed in.</param>
+        /// <returns>A boolean value based on the given inputs by the user.</returns>
         [WebMethod]
-        public bool ValidateLogin(string email, string password)
+        public bool ValidateLogin(string accountNumber, string password)
         {
             databaseforassignmentEntities1 context = new databaseforassignmentEntities1();
 
             var query = from user in context.Users
-                         where user.email == email && user.password.ToString() == password && user.status == "active"
+                         where user.accountnumber == accountNumber && user.password.ToString() == password && user.status == "active"
                          select user;
 
             List<User> users = new List<User>();
@@ -39,12 +44,18 @@ namespace WebService
             return (users.Count > 0) ? true : false;
         }
 
+        /// <summary>
+        /// This method is used to identify which user is logged in right now.
+        /// </summary>
+        /// <param name="accountNumber">The account number the user typed in.</param>
+        /// <param name="password">The password the user typed in.</param>
+        /// <returns>The user that is currently logged in.</returns>
         [WebMethod]
-        public UserModel GetUserByLogin(string email, string password)
+        public UserModel GetUserByLogin(string accountNumber, string password)
         {
             databaseforassignmentEntities1 context = new databaseforassignmentEntities1();
             var query = from user in context.Users
-                        where user.email == email && user.password.ToString() == password && user.status == "active"
+                        where user.accountnumber == accountNumber && user.password.ToString() == password && user.status == "active"
                         select user;
 
             UserModel loginUser = new UserModel();
@@ -61,6 +72,10 @@ namespace WebService
             return loginUser;
         }
 
+        /// <summary>
+        /// This method is used to register a user.
+        /// </summary>
+        /// <param name="user">This is the user where a account needs to be registered for.</param>
         [WebMethod]
         public void RegisterUser(UserModel user)
         {
@@ -80,7 +95,13 @@ namespace WebService
             context.SaveChanges();
         }
         
-
+        /// <summary>
+        /// This method is used to transfer money from one account to the other.
+        /// </summary>
+        /// <param name="amountOfBitCoins">The ammount of bitcoins that the sender wants to send to the receiver.</param>
+        /// <param name="receiverAccountNumber">The account number of the person that is receiving the bitcoins.</param>
+        /// <param name="senderAccountNumber">The account number of the person that is sending the bitcoins.</param>
+        /// <returns>A boolean value based on the given inputs and the result of the checks.</returns>
         [WebMethod]
         public bool TransferMoney(int amountOfBitCoins, string receiverAccountNumber, string senderAccountNumber)
         {
@@ -109,6 +130,10 @@ namespace WebService
             return true;
         }
 
+        /// <summary>
+        /// This method is used to find all the users in the database that have a status of active.
+        /// </summary>
+        /// <returns>All the users in the database that have a status of active.</returns>
         [WebMethod]
         public List<string> AllUsers()
         {
@@ -127,6 +152,11 @@ namespace WebService
             return accountNumbers;
         }
 
+        /// <summary>
+        /// This method is used to find all the transactions of a certain user.
+        /// </summary>
+        /// <param name="accountNumber">The account number of the person that is searched on.</param>
+        /// <returns>All the transactions of a certain user.</returns>
         [WebMethod]
         public List<TransactionModel> AllTransactions(string accountNumber)
         {
@@ -153,6 +183,12 @@ namespace WebService
             return transactions;
         }
                
+        /// <summary>
+        /// This method is used to find all the transactions of a certain type.
+        /// </summary>
+        /// <param name="type">This is the type that is searched on.</param>
+        /// <param name="accountNumber">This is the account number that is searched on.</param>
+        /// <returns>All the transactions of a certain type.</returns>
         [WebMethod]
         public List<TransactionModel> TransactionsPerType(string type, string accountNumber)
         {
@@ -179,6 +215,11 @@ namespace WebService
             return transactions;
         }
 
+        /// <summary>
+        /// This method is used to find all the transactions where the selected user is the sender.
+        /// </summary>
+        /// <param name="sender">The account number of the selected user.</param>
+        /// <returns>All the transactions where the selected user is the sender.</returns>
         [WebMethod]
         public List<TransactionModel> TransactionsPerSender(string sender)
         {
@@ -205,6 +246,11 @@ namespace WebService
             return transactions;
         }
 
+        /// <summary>
+        /// This method is used to find all the transactions where the selected user is the receiver.
+        /// </summary>
+        /// <param name="receiver">The account number of the selected user.</param>
+        /// <returns>All the transactions where the selected user is the receiver.</returns>
         [WebMethod]
         public List<TransactionModel> TransactionsPerReceiver(string receiver)
         {
@@ -231,6 +277,11 @@ namespace WebService
             return transactions;
         }
 
+        /// <summary>
+        /// This method is used to find all the data in the database from a certain user.
+        /// </summary>
+        /// <param name="accountNumber">The account number of the user that is searched on.</param>
+        /// <returns>A list of users.</returns>
         [WebMethod]
         public List<UserModel> Finduser(string accountNumber)
         {
@@ -259,6 +310,10 @@ namespace WebService
             return users;
         }
 
+        /// <summary>
+        /// This method is used to set a user to inactive in the database.
+        /// </summary>
+        /// <param name="userAccountnumber">The account number of the user that needs to be set to inactive.</param>
         [WebMethod]
         public void DeleteUser(string userAccountnumber)
         {

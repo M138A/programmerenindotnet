@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:46131/CryptoBankService.asmx" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://cryptobank.azurewebsites.net/service/CryptoBankService.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="CryptoBankService.disco" MetadataType="Disco" ID="70cb5851-b431-478b-8544-beaf9c365bf3" SourceId="1" SourceUrl="http://localhost:46131/CryptoBankService.asmx?disco" />
-    <MetadataFile FileName="CryptoBankService.wsdl" MetadataType="Wsdl" ID="387dba44-9b68-452c-9824-74775e32539f" SourceId="1" SourceUrl="http://localhost:46131/CryptoBankService.asmx?wsdl" />
+    <MetadataFile FileName="CryptoBankService1.disco" MetadataType="Disco" ID="18514704-8ffc-4d3f-8c47-307bb2e5072f" SourceId="1" SourceUrl="http://cryptobank.azurewebsites.net/service/CryptoBankService.asmx?disco" />
+    <MetadataFile FileName="CryptoBankService1.wsdl" MetadataType="Wsdl" ID="ad58d0ed-bce2-46af-bc14-e5c15602924e" SourceId="1" SourceUrl="http://cryptobank.azurewebsites.net/service/CryptoBankService.asmx?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

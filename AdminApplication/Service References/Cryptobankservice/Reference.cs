@@ -301,6 +301,13 @@ namespace AdminApplication.Cryptobankservice {
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:46131/CryptoBankWebService/GetUserByLogin", ReplyAction="*")]
         System.Threading.Tasks.Task<AdminApplication.Cryptobankservice.GetUserByLoginResponse> GetUserByLoginAsync(AdminApplication.Cryptobankservice.GetUserByLoginRequest request);
         
+        // CODEGEN: Generating message contract since element name user from namespace http://localhost:46131/CryptoBankWebService is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:46131/CryptoBankWebService/RegisterUser", ReplyAction="*")]
+        AdminApplication.Cryptobankservice.RegisterUserResponse RegisterUser(AdminApplication.Cryptobankservice.RegisterUserRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:46131/CryptoBankWebService/RegisterUser", ReplyAction="*")]
+        System.Threading.Tasks.Task<AdminApplication.Cryptobankservice.RegisterUserResponse> RegisterUserAsync(AdminApplication.Cryptobankservice.RegisterUserRequest request);
+        
         // CODEGEN: Generating message contract since element name receiverAccountNumber from namespace http://localhost:46131/CryptoBankWebService is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:46131/CryptoBankWebService/TransferMoney", ReplyAction="*")]
         AdminApplication.Cryptobankservice.TransferMoneyResponse TransferMoney(AdminApplication.Cryptobankservice.TransferMoneyRequest request);
@@ -499,6 +506,67 @@ namespace AdminApplication.Cryptobankservice {
         
         public GetUserByLoginResponseBody(AdminApplication.Cryptobankservice.UserModel GetUserByLoginResult) {
             this.GetUserByLoginResult = GetUserByLoginResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class RegisterUserRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="RegisterUser", Namespace="http://localhost:46131/CryptoBankWebService", Order=0)]
+        public AdminApplication.Cryptobankservice.RegisterUserRequestBody Body;
+        
+        public RegisterUserRequest() {
+        }
+        
+        public RegisterUserRequest(AdminApplication.Cryptobankservice.RegisterUserRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost:46131/CryptoBankWebService")]
+    public partial class RegisterUserRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public AdminApplication.Cryptobankservice.UserModel user;
+        
+        public RegisterUserRequestBody() {
+        }
+        
+        public RegisterUserRequestBody(AdminApplication.Cryptobankservice.UserModel user) {
+            this.user = user;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class RegisterUserResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="RegisterUserResponse", Namespace="http://localhost:46131/CryptoBankWebService", Order=0)]
+        public AdminApplication.Cryptobankservice.RegisterUserResponseBody Body;
+        
+        public RegisterUserResponse() {
+        }
+        
+        public RegisterUserResponse(AdminApplication.Cryptobankservice.RegisterUserResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class RegisterUserResponseBody {
+        
+        public RegisterUserResponseBody() {
         }
     }
     
@@ -1123,6 +1191,30 @@ namespace AdminApplication.Cryptobankservice {
             inValue.Body.email = email;
             inValue.Body.password = password;
             return ((AdminApplication.Cryptobankservice.CryptoBankServiceSoap)(this)).GetUserByLoginAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        AdminApplication.Cryptobankservice.RegisterUserResponse AdminApplication.Cryptobankservice.CryptoBankServiceSoap.RegisterUser(AdminApplication.Cryptobankservice.RegisterUserRequest request) {
+            return base.Channel.RegisterUser(request);
+        }
+        
+        public void RegisterUser(AdminApplication.Cryptobankservice.UserModel user) {
+            AdminApplication.Cryptobankservice.RegisterUserRequest inValue = new AdminApplication.Cryptobankservice.RegisterUserRequest();
+            inValue.Body = new AdminApplication.Cryptobankservice.RegisterUserRequestBody();
+            inValue.Body.user = user;
+            AdminApplication.Cryptobankservice.RegisterUserResponse retVal = ((AdminApplication.Cryptobankservice.CryptoBankServiceSoap)(this)).RegisterUser(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<AdminApplication.Cryptobankservice.RegisterUserResponse> AdminApplication.Cryptobankservice.CryptoBankServiceSoap.RegisterUserAsync(AdminApplication.Cryptobankservice.RegisterUserRequest request) {
+            return base.Channel.RegisterUserAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<AdminApplication.Cryptobankservice.RegisterUserResponse> RegisterUserAsync(AdminApplication.Cryptobankservice.UserModel user) {
+            AdminApplication.Cryptobankservice.RegisterUserRequest inValue = new AdminApplication.Cryptobankservice.RegisterUserRequest();
+            inValue.Body = new AdminApplication.Cryptobankservice.RegisterUserRequestBody();
+            inValue.Body.user = user;
+            return ((AdminApplication.Cryptobankservice.CryptoBankServiceSoap)(this)).RegisterUserAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

@@ -292,13 +292,14 @@
     <Content Include="Service References\Cryptobankservice\CryptoBank.Cryptobankservice.TransactionsPerSenderResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Service References\Cryptobankservice\CryptoBankService.disco" />
     <None Include="Service References\Cryptobankservice\configuration91.svcinfo" />
     <None Include="Service References\Cryptobankservice\configuration.svcinfo" />
+    <None Include="Service References\Cryptobankservice\CryptoBankService1.wsdl" />
     <None Include="Service References\Cryptobankservice\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\Cryptobankservice\CryptoBankService1.disco" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -337,7 +338,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Transfer.cshtml" />
-    <None Include="Service References\Cryptobankservice\CryptoBankService.wsdl" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\AfterLogin.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
