@@ -14,3 +14,19 @@ C:\Users\MarkGame\Source\Workspaces\My First Project\CryptoBank\AdminApplication
 C:\Users\MarkGame\Source\Workspaces\My First Project\CryptoBank\AdminApplication\obj\Debug\AdminApplication.csproj.GenerateResource.Cache
 C:\Users\MarkGame\Source\Workspaces\My First Project\CryptoBank\AdminApplication\obj\Debug\AdminApplication.exe
 C:\Users\MarkGame\Source\Workspaces\My First Project\CryptoBank\AdminApplication\obj\Debug\AdminApplication.pdb
+C:\Users\MarkGame\Documents\programmerenindotnet\AdminApplication\bin\Debug\AdminApplication.exe.config
+C:\Users\MarkGame\Documents\programmerenindotnet\AdminApplication\bin\Debug\AdminApplication.exe
+C:\Users\MarkGame\Documents\programmerenindotnet\AdminApplication\bin\Debug\AdminApplication.pdb
+C:\Users\MarkGame\Documents\programmerenindotnet\AdminApplication\obj\Debug\AdminApplication.csprojResolveAssemblyReference.cache
+C:\Users\MarkGame\Documents\programmerenindotnet\AdminApplication\obj\Debug\Transactions.g.cs
+C:\Users\MarkGame\Documents\programmerenindotnet\AdminApplication\obj\Debug\UserInformation.g.cs
+C:\Users\MarkGame\Documents\programmerenindotnet\AdminApplication\obj\Debug\App.g.cs
+C:\Users\MarkGame\Documents\programmerenindotnet\AdminApplication\obj\Debug\AdminApplication_MarkupCompile.cache
+C:\Users\MarkGame\Documents\programmerenindotnet\AdminApplication\obj\Debug\AdminApplication_MarkupCompile.lref
+C:\Users\MarkGame\Documents\programmerenindotnet\AdminApplication\obj\Debug\Transactions.baml
+C:\Users\MarkGame\Documents\programmerenindotnet\AdminApplication\obj\Debug\UserInformation.baml
+C:\Users\MarkGame\Documents\programmerenindotnet\AdminApplication\obj\Debug\AdminApplication.g.resources
+C:\Users\MarkGame\Documents\programmerenindotnet\AdminApplication\obj\Debug\AdminApplication.Properties.Resources.resources
+C:\Users\MarkGame\Documents\programmerenindotnet\AdminApplication\obj\Debug\AdminApplication.csproj.GenerateResource.Cache
+C:\Users\MarkGame\Documents\programmerenindotnet\AdminApplication\obj\Debug\AdminApplication.exe
+C:\Users\MarkGame\Documents\programmerenindotnet\AdminApplication\obj\Debug\AdminApplication.pdb
