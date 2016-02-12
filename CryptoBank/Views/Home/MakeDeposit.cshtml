@@ -11,7 +11,7 @@
             @: Amount: @Html.TextBox("textbox", "", new { id = "filled_in_amount", ng_model = "filledInAmount", ng_change = "setText(" + @ViewBag.BitcoinRate + ")"}) <br />
             @: Currency: @Html.RadioButtonFor(model => model.currency, "€", new {ng_model = "radio", ng_change = "setText( " + @ViewBag.BitcoinRate + ")" })€ @Html.RadioButtonFor(model => model.currency, "B", new {ng_model = "radio", ng_change = "setText(" + @ViewBag.BitcoinRate + ")" })B <br />
             @Html.TextBoxFor(model => model.amount, new { id = "amount", type="hidden"})
-            @Html.TextBoxFor(model => model.deposit, new { value="true", type="hidden"})
+            @Html.TextBoxFor(model => model.deposit, new { @Value="True", type="hidden"})
             
             <input type="submit" value="Submit"/>
 

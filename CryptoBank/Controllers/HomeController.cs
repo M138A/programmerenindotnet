@@ -1,18 +1,19 @@
-﻿using System;
+﻿using CryptoBank.Cryptobankservice;
+using CryptoBank.Models;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Net;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
-using CryptoBank.Models;
-using System.Diagnostics;
-using CryptoBank.Cryptobankservice;
-using System.Text.RegularExpressions;
 
 namespace CryptoBank.Controllers
 {
     public class HomeController : Controller
     {
-        static UserModel loggedInUser = new UserModel();
+        protected static UserModel loggedInUser = new UserModel();
         public ActionResult Index()
         {
             return View();
@@ -63,6 +64,43 @@ namespace CryptoBank.Controllers
             return View();
         }
 
+
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(UserModel user)
+        {
+            System.Diagnostics.Debug.WriteLine(user.email + " " + user.password);
+            //check with database
+            CryptoBankServiceSoapClient webService = new CryptoBankServiceSoapClient();
+            if (webService.ValidateLogin(user.email, user.password))
+            {
+                loggedInUser = webService.GetUserByLogin(user.email, user.password);
+                Session["LoggedUserAccountNumber"] = loggedInUser.accountnumber.ToString();
+                Session["LoggedUserName"] = loggedInUser.name.ToString();
+                return RedirectToAction("Dashboard");
+            }
+            return View(user);
+        }
+        public ActionResult Dashboard()
+        {
+            if (Session["LoggedUserAccountNumber"] != null)
+            {
+                HelperTools rateOfExchange = new HelperTools();
+                ViewBag.rate = rateOfExchange.GetConversionRate();
+                ViewBag.date = rateOfExchange.GetLastTimeUpdated();
+                return View(loggedInUser);
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+        }
         public ActionResult MakeDeposit() {
             ViewBag.Message = "In this form you can fill in the details for making a deposit to your Cryptobank account";
             HelperTools h = new HelperTools();
@@ -85,44 +123,6 @@ namespace CryptoBank.Controllers
             return View(model);
         }
 
-
-        [HttpGet]
-        public ActionResult Login()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Login(UserModel user)
-        {
-            System.Diagnostics.Debug.WriteLine(user.email + " " + user.password);
-            //check with database
-            CryptoBankServiceSoapClient webService = new CryptoBankServiceSoapClient();
-            if (webService.ValidateLogin(user.email, user.password))
-            {
-                loggedInUser = webService.GetUserByLogin(user.email, user.password);
-                Session["LoggedUserAccountNumber"] = loggedInUser.accountnumber.ToString();
-                Session["LoggedUserName"] = loggedInUser.name.ToString();
-                return RedirectToAction("AfterLogin");
-            }
-
-            return View(user);
-        }
-
-        public ActionResult AfterLogin()
-        {
-            if (Session["LoggedUserAccountNumber"] != null)
-            {
-                return View();
-            }
-            else
-            {
-                return RedirectToAction("Login");
-            }
-            
-        }
-
         [HttpGet]
         public ActionResult Register()
         {
@@ -134,7 +134,6 @@ namespace CryptoBank.Controllers
             UserModel registerUSer = user;
             registerUSer.accountnumber = "NL01CRYPTO" + new Random().Next(000100000, 999999999);
             registerUSer.balance = 0;
-
             if (ModelState.IsValid)
             {
                 CryptoBankServiceSoapClient webservice = new CryptoBankServiceSoapClient();

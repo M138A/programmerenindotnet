@@ -363,6 +363,13 @@ namespace AdminApplication.Cryptobankservice {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:46131/CryptoBankWebService/DeleteUser", ReplyAction="*")]
         System.Threading.Tasks.Task<AdminApplication.Cryptobankservice.DeleteUserResponse> DeleteUserAsync(AdminApplication.Cryptobankservice.DeleteUserRequest request);
+        
+        // CODEGEN: Generating message contract since element name accountNumber from namespace http://localhost:46131/CryptoBankWebService is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:46131/CryptoBankWebService/MakeDepositWIthdrawal", ReplyAction="*")]
+        AdminApplication.Cryptobankservice.MakeDepositWIthdrawalResponse MakeDepositWIthdrawal(AdminApplication.Cryptobankservice.MakeDepositWIthdrawalRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:46131/CryptoBankWebService/MakeDepositWIthdrawal", ReplyAction="*")]
+        System.Threading.Tasks.Task<AdminApplication.Cryptobankservice.MakeDepositWIthdrawalResponse> MakeDepositWIthdrawalAsync(AdminApplication.Cryptobankservice.MakeDepositWIthdrawalRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1112,6 +1119,75 @@ namespace AdminApplication.Cryptobankservice {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class MakeDepositWIthdrawalRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="MakeDepositWIthdrawal", Namespace="http://localhost:46131/CryptoBankWebService", Order=0)]
+        public AdminApplication.Cryptobankservice.MakeDepositWIthdrawalRequestBody Body;
+        
+        public MakeDepositWIthdrawalRequest() {
+        }
+        
+        public MakeDepositWIthdrawalRequest(AdminApplication.Cryptobankservice.MakeDepositWIthdrawalRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost:46131/CryptoBankWebService")]
+    public partial class MakeDepositWIthdrawalRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string accountNumber;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public decimal amount;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public bool deposit;
+        
+        public MakeDepositWIthdrawalRequestBody() {
+        }
+        
+        public MakeDepositWIthdrawalRequestBody(string accountNumber, decimal amount, bool deposit) {
+            this.accountNumber = accountNumber;
+            this.amount = amount;
+            this.deposit = deposit;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class MakeDepositWIthdrawalResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="MakeDepositWIthdrawalResponse", Namespace="http://localhost:46131/CryptoBankWebService", Order=0)]
+        public AdminApplication.Cryptobankservice.MakeDepositWIthdrawalResponseBody Body;
+        
+        public MakeDepositWIthdrawalResponse() {
+        }
+        
+        public MakeDepositWIthdrawalResponse(AdminApplication.Cryptobankservice.MakeDepositWIthdrawalResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class MakeDepositWIthdrawalResponseBody {
+        
+        public MakeDepositWIthdrawalResponseBody() {
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface CryptoBankServiceSoapChannel : AdminApplication.Cryptobankservice.CryptoBankServiceSoap, System.ServiceModel.IClientChannel {
     }
@@ -1418,6 +1494,34 @@ namespace AdminApplication.Cryptobankservice {
             inValue.Body = new AdminApplication.Cryptobankservice.DeleteUserRequestBody();
             inValue.Body.userAccountnumber = userAccountnumber;
             return ((AdminApplication.Cryptobankservice.CryptoBankServiceSoap)(this)).DeleteUserAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        AdminApplication.Cryptobankservice.MakeDepositWIthdrawalResponse AdminApplication.Cryptobankservice.CryptoBankServiceSoap.MakeDepositWIthdrawal(AdminApplication.Cryptobankservice.MakeDepositWIthdrawalRequest request) {
+            return base.Channel.MakeDepositWIthdrawal(request);
+        }
+        
+        public void MakeDepositWIthdrawal(string accountNumber, decimal amount, bool deposit) {
+            AdminApplication.Cryptobankservice.MakeDepositWIthdrawalRequest inValue = new AdminApplication.Cryptobankservice.MakeDepositWIthdrawalRequest();
+            inValue.Body = new AdminApplication.Cryptobankservice.MakeDepositWIthdrawalRequestBody();
+            inValue.Body.accountNumber = accountNumber;
+            inValue.Body.amount = amount;
+            inValue.Body.deposit = deposit;
+            AdminApplication.Cryptobankservice.MakeDepositWIthdrawalResponse retVal = ((AdminApplication.Cryptobankservice.CryptoBankServiceSoap)(this)).MakeDepositWIthdrawal(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<AdminApplication.Cryptobankservice.MakeDepositWIthdrawalResponse> AdminApplication.Cryptobankservice.CryptoBankServiceSoap.MakeDepositWIthdrawalAsync(AdminApplication.Cryptobankservice.MakeDepositWIthdrawalRequest request) {
+            return base.Channel.MakeDepositWIthdrawalAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<AdminApplication.Cryptobankservice.MakeDepositWIthdrawalResponse> MakeDepositWIthdrawalAsync(string accountNumber, decimal amount, bool deposit) {
+            AdminApplication.Cryptobankservice.MakeDepositWIthdrawalRequest inValue = new AdminApplication.Cryptobankservice.MakeDepositWIthdrawalRequest();
+            inValue.Body = new AdminApplication.Cryptobankservice.MakeDepositWIthdrawalRequestBody();
+            inValue.Body.accountNumber = accountNumber;
+            inValue.Body.amount = amount;
+            inValue.Body.deposit = deposit;
+            return ((AdminApplication.Cryptobankservice.CryptoBankServiceSoap)(this)).MakeDepositWIthdrawalAsync(inValue);
         }
     }
 }

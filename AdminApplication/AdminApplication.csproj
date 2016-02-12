@@ -127,6 +127,9 @@
     <None Include="Service References\Cryptobankservice\AdminApplication.Cryptobankservice.GetUserByLoginResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\Cryptobankservice\AdminApplication.Cryptobankservice.MakeDepositWIthdrawalResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\Cryptobankservice\AdminApplication.Cryptobankservice.RegisterUserResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

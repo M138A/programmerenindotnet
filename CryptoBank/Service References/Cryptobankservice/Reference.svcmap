@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="87f6474e-4613-4b50-a2a0-38a2ac03a83c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d2b23c5e-cf6c-4953-87f0-4de1de936a17" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,8 +22,8 @@
     <MetadataSource Address="http://cryptobank.azurewebsites.net/service/CryptoBankService.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="CryptoBankService1.disco" MetadataType="Disco" ID="18514704-8ffc-4d3f-8c47-307bb2e5072f" SourceId="1" SourceUrl="http://cryptobank.azurewebsites.net/service/CryptoBankService.asmx?disco" />
-    <MetadataFile FileName="CryptoBankService1.wsdl" MetadataType="Wsdl" ID="ad58d0ed-bce2-46af-bc14-e5c15602924e" SourceId="1" SourceUrl="http://cryptobank.azurewebsites.net/service/CryptoBankService.asmx?wsdl" />
+    <MetadataFile FileName="CryptoBankService.disco" MetadataType="Disco" ID="45c3cb77-6491-4490-b045-328d83575c18" SourceId="1" SourceUrl="http://cryptobank.azurewebsites.net/service/CryptoBankService.asmx?disco" />
+    <MetadataFile FileName="CryptoBankService.wsdl" MetadataType="Wsdl" ID="3e8f0e8e-fb4a-48c6-ac0e-b2e239954fa2" SourceId="1" SourceUrl="http://cryptobank.azurewebsites.net/service/CryptoBankService.asmx?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

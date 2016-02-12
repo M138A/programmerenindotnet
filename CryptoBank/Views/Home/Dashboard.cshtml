@@ -1,0 +1,53 @@
+﻿@model CryptoBank.Cryptobankservice.UserModel
+@{
+    ViewBag.Title = "Dashboard";
+}
+<link rel="stylesheet" href="~/Content/Site.css" type="text/css" />
+<h2>Dashboard</h2>
+
+@if (Session["LoggedUserAccountNumber"] != null)
+{
+    <text>
+    Welcome @Model.name
+    </text>
+    <div class="row">
+        <div class="col-md-6 text-center ">
+            <div id="rateofexchange" class="classWithPad">
+                <h4>Rate of exchange</h4>
+                1 Bitcoin is @ViewBag.rate euro<br />
+                Last updatet: @ViewBag.date 
+            </div>
+                       
+        </div>
+        <div class="col-md-6 text-center">
+            <div id="Transfer" class="classWithPad">
+                <h4>Transfer</h4>
+                @using (Html.BeginForm("Transfer", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    <input type="submit" class="btn btn-default" value="Transfer" />
+                }
+            </div>            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 text-center">
+            <div id="Deposit" class="classWithPad">
+                <h4>Deposit</h4>
+                @using (Html.BeginForm("MakeDeposit", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    <input type="submit" class="btn btn-default" value="Deposit" />
+                }
+            </div>
+        </div>
+        <div class="col-md-6 text-center">   
+            <div id="Withdraw" class="classWithPad">
+                <h4>Withdraw</h4>
+                @using (Html.BeginForm("MakeWithdrawal", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    <input type="submit" class="btn btn-default" value="Withdraw" />
+                }
+            </div>         
+        </div>
+    </div>
+}
+

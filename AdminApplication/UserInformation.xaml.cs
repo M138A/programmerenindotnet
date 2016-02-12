@@ -46,6 +46,7 @@ namespace AdminApplication
 
             TransactionButton.Visibility = Visibility.Collapsed;
             DeleteButton.Visibility = Visibility.Collapsed;
+            statusData.Content = "inactive";
 
             UsersBox.Items.Remove(UsersBox.SelectedItem);
 

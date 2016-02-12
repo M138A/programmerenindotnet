@@ -15,10 +15,10 @@ app.controller("ConversionController", ['$scope', function ($scope) {
     }
 }])
 
-function convertEuroToBitcoins(amount, conversionRate) {
+function convertBitcoinsToEuro(amount, conversionRate) {
     return amount * conversionRate;
 }
 
-function convertBitcoinsToEuro(amount, conversionRate) {
+function convertEuroToBitcoins(amount, conversionRate) {
     return amount * (1 / conversionRate);
 }

@@ -82,17 +82,20 @@ namespace WebService
             databaseforassignmentEntities1 context = new databaseforassignmentEntities1();
             User DBuser = new User();
 
-            DBuser.accountnumber = user.accountnumber;
-            DBuser.balance = 0;
-            DBuser.city = user.city;
-            DBuser.email = user.email;
-            DBuser.name = user.name;
-            DBuser.password = user.password;
-            DBuser.status = "active";
+            if (context.Users.SingleOrDefault(u => u.email == user.email) == null)
+            {
+                DBuser.accountnumber = user.accountnumber;
+                DBuser.balance = 0;
+                DBuser.city = user.city;
+                DBuser.email = user.email;
+                DBuser.name = user.name;
+                DBuser.password = user.password;
+                DBuser.status = "active";
 
-            context.Users.Add(DBuser);
+                context.Users.Add(DBuser);
 
-            context.SaveChanges();
+                context.SaveChanges();
+            }
         }
         
         /// <summary>
@@ -336,11 +339,38 @@ namespace WebService
             databaseforassignmentEntities1 context = new databaseforassignmentEntities1();
 
             var user = context.Users.SingleOrDefault(u => u.accountnumber == accountNumber);
+
             if (deposit)
+            {
                 user.balance += amount;
+
+                context.transactions.Add(new transaction
+                {
+                    transactiontype = "deposit",
+                    date = DateTime.Now,
+                    sender = accountNumber,
+                    receiver = accountNumber,
+                    amount = amount
+                });
+
+                context.SaveChanges();
+            }
             else
-                user.balance -= amount;
-            context.SaveChanges();
+            {
+                if (user.balance - amount >= 0)
+                    user.balance -= amount;
+
+                context.transactions.Add(new transaction
+                {
+                    transactiontype = "withdrawing",
+                    date = DateTime.Now,
+                    sender = accountNumber,
+                    receiver = accountNumber,
+                    amount = amount
+                });
+
+                context.SaveChanges();
+            }
         }
 
     }

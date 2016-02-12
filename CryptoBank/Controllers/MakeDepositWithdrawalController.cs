@@ -16,7 +16,7 @@ namespace CryptoBank.Controllers
         [HttpPost]
         public ActionResult ConfirmDepositWithDrawal(DepositWithdrawalInfo m) {
             CryptoBankServiceSoapClient x = new CryptoBankServiceSoapClient();
-            x.MakeDepositWithdrawal(m.IBAN, m.amount, m.deposit);
+            x.MakeDepositWIthdrawal(loggedInUser.accountnumber, m.amount, m.deposit);
             return View("~/Views/Home/Index.cshtml");
         }
 
