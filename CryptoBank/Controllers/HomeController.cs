@@ -63,6 +63,28 @@ namespace CryptoBank.Controllers
             return View();
         }
 
+        public ActionResult MakeDeposit() {
+            ViewBag.Message = "In this form you can fill in the details for making a deposit to your Cryptobank account";
+            HelperTools h = new HelperTools();
+            ViewBag.BitcoinRate = h.GetConversionRate();
+            ViewBag.LastUpdated = h.GetLastTimeUpdated();
+
+            var model = new DepositWithdrawalInfo();
+            model.IBAN = loggedInUser.accountnumber;
+            return View(model);
+        }
+
+        public ActionResult MakeWithDrawal() {
+            ViewBag.Message = "In this form you can fill in the details for making a withdrawal from your Cryptobank account";
+            HelperTools h = new HelperTools();
+            ViewBag.BitcoinRate = h.GetConversionRate();
+            ViewBag.LastUpdated = h.GetLastTimeUpdated();
+
+            var model = new DepositWithdrawalInfo();
+            model.IBAN = loggedInUser.accountnumber;
+            return View(model);
+        }
+
 
         [HttpGet]
         public ActionResult Login()
