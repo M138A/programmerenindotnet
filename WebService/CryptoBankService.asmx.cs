@@ -21,18 +21,18 @@ namespace WebService
     public class CryptoBankService : System.Web.Services.WebService
     {
         /// <summary>
-        /// This method is used to identify if the user is the real owner of the account.
+        /// 
         /// </summary>
-        /// <param name="accountNumber">The account number the user typed in.</param>
-        /// <param name="password">The password the user typed in.</param>
-        /// <returns>A boolean value based on the given inputs by the user.</returns>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         [WebMethod]
-        public bool ValidateLogin(string accountNumber, string password)
+        public bool ValidateLogin(string email, string password)
         {
             databaseforassignmentEntities1 context = new databaseforassignmentEntities1();
 
             var query = from user in context.Users
-                         where user.accountnumber == accountNumber && user.password.ToString() == password && user.status == "active"
+                         where user.email == email && user.password.ToString() == password && user.status == "active"
                          select user;
 
             List<User> users = new List<User>();
@@ -45,17 +45,17 @@ namespace WebService
         }
 
         /// <summary>
-        /// This method is used to identify which user is logged in right now.
+        /// 
         /// </summary>
-        /// <param name="accountNumber">The account number the user typed in.</param>
-        /// <param name="password">The password the user typed in.</param>
-        /// <returns>The user that is currently logged in.</returns>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         [WebMethod]
-        public UserModel GetUserByLogin(string accountNumber, string password)
+        public UserModel GetUserByLogin(string email, string password)
         {
             databaseforassignmentEntities1 context = new databaseforassignmentEntities1();
             var query = from user in context.Users
-                        where user.accountnumber == accountNumber && user.password.ToString() == password && user.status == "active"
+                        where user.email == email && user.password.ToString() == password && user.status == "active"
                         select user;
 
             UserModel loginUser = new UserModel();
@@ -323,6 +323,23 @@ namespace WebService
 
             user.status = "inactive";
 
+            context.SaveChanges();
+        }
+
+        /// <summary>
+        /// Updates the balance of the user according to his deposit/withdrawal
+        /// </summary>
+        /// <param name="accountNumber">the logged in user account number</param>
+        /// <param name="amount">the deposited amount</param>
+        [WebMethod]
+        public void MakeDepositWIthdrawal(string accountNumber, decimal amount, bool deposit) {
+            databaseforassignmentEntities1 context = new databaseforassignmentEntities1();
+
+            var user = context.Users.SingleOrDefault(u => u.accountnumber == accountNumber);
+            if (deposit)
+                user.balance += amount;
+            else
+                user.balance -= amount;
             context.SaveChanges();
         }
 
