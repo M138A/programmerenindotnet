@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/angular.js"></script>
+<script src="~/Scripts/MakeDepositController.js"></script>
+
+@model CryptoBank.Models.DepositWithdrawalInfo
+<div ng-app="MakeDepositApp">
+    <div ng-controller="ConversionController">
+        @using (Html.BeginForm("ConfirmDepositWithdrawal", "MakeDepositWithdrawal", FormMethod.Post)) {
+            @: Amount: @Html.TextBox("textbox", "", new { id = "filled_in_amount", ng_model = "filledInAmount", ng_change = "setText(" + @ViewBag.BitcoinRate + ")"}) <br />
+            @: Currency: @Html.RadioButtonFor(model => model.currency, "€", new {ng_model = "radio", ng_change = "setText( " + @ViewBag.BitcoinRate + ")" })€ @Html.RadioButtonFor(model => model.currency, "B", new {ng_model = "radio", ng_change = "setText(" + @ViewBag.BitcoinRate + ")" })B <br />
+            @Html.TextBoxFor(model => model.amount, new { id = "amount", type="hidden"})
+            @Html.TextBoxFor(model => model.deposit, new { value="true", type="hidden"})
+            
+            <input type="submit" value="Submit"/>
+
+            <div>{{convertedAmount}}</div>
+            <div>Conversion rate was last updated by @ViewBag.LastUpdated</div>
+
+        }
+    </div>
+</div>
+
+
+
+     
