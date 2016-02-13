@@ -545,10 +545,10 @@
   </wsdl:binding>
   <wsdl:service name="CryptoBankService">
     <wsdl:port name="CryptoBankServiceSoap" binding="tns:CryptoBankServiceSoap">
-      <soap:address location="http://localhost:46131/CryptoBankService.asmx" />
+      <soap:address location="http://cryptobank.azurewebsites.net/service/CryptoBankService.asmx" />
     </wsdl:port>
     <wsdl:port name="CryptoBankServiceSoap12" binding="tns:CryptoBankServiceSoap12">
-      <soap12:address location="http://localhost:46131/CryptoBankService.asmx" />
+      <soap12:address location="http://cryptobank.azurewebsites.net/service/CryptoBankService.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
