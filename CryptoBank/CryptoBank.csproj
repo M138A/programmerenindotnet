@@ -284,6 +284,7 @@
     <Content Include="obj\Debug\CryptoBank.csprojResolveAssemblyReference.cache" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="Properties\PublishProfiles\qw.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
@@ -1089,12 +1090,12 @@
     </Content>
     <None Include="Service References\Cryptobankservice\configuration91.svcinfo" />
     <None Include="Service References\Cryptobankservice\configuration.svcinfo" />
-    <None Include="Service References\Cryptobankservice\CryptoBankService.wsdl" />
+    <None Include="Service References\Cryptobankservice\CryptoBankService1.wsdl" />
     <None Include="Service References\Cryptobankservice\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\Cryptobankservice\CryptoBankService.disco" />
+    <None Include="Service References\Cryptobankservice\CryptoBankService1.disco" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

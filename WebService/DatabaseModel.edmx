@@ -75,7 +75,7 @@
           <Property Name="date" Type="datetime" Nullable="false" />
           <Property Name="sender" Type="char" MaxLength="45" Nullable="false" />
           <Property Name="receiver" Type="char" MaxLength="45" Nullable="false" />
-          <Property Name="amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="amount" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -86,7 +86,7 @@
           <Property Name="email" Type="nvarchar(max)" Nullable="false" />
           <Property Name="city" Type="nvarchar(max)" Nullable="false" />
           <Property Name="accountnumber" Type="char" MaxLength="45" Nullable="false" />
-          <Property Name="balance" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="balance" Type="float" Nullable="false" />
           <Property Name="status" Type="nvarchar(max)" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -289,7 +289,7 @@ warning 6002: The table/view 'databaseforassignment.sys.database_firewall_rules'
           <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="sender" Type="String" MaxLength="45" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="receiver" Type="String" MaxLength="45" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="amount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="amount" Type="Double" Nullable="false" />
           <NavigationProperty Name="User" Relationship="Self.FK_TempSales_SalesReason" FromRole="transactions" ToRole="User" />
         </EntityType>
         <EntityType Name="User">
@@ -301,7 +301,7 @@ warning 6002: The table/view 'databaseforassignment.sys.database_firewall_rules'
           <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="city" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="accountnumber" Type="String" MaxLength="45" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="balance" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="balance" Type="Double" Nullable="false" />
           <NavigationProperty Name="transactions" Relationship="Self.FK_TempSales_SalesReason" FromRole="User" ToRole="transactions" />
           <Property Name="status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>

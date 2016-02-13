@@ -25,7 +25,7 @@ namespace WebService
         public string email { get; set; }
         public string city { get; set; }
         public string accountnumber { get; set; }
-        public decimal balance { get; set; }
+        public double balance { get; set; }
         public string status { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

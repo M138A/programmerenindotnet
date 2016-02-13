@@ -127,12 +127,6 @@
     <None Include="Service References\Cryptobankservice\AdminApplication.Cryptobankservice.GetUserByLoginResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\Cryptobankservice\AdminApplication.Cryptobankservice.MakeDepositWIthdrawalResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\Cryptobankservice\AdminApplication.Cryptobankservice.RegisterUserResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\Cryptobankservice\AdminApplication.Cryptobankservice.TransactionModel1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -154,6 +148,7 @@
     <None Include="Service References\Cryptobankservice\AdminApplication.Cryptobankservice.ValidateLoginResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\Cryptobankservice\CryptoBankService.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -165,20 +160,19 @@
     <WCFMetadataStorage Include="Service References\Cryptobankservice\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\Cryptobankservice\CryptoBankService.disco" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Service References\Cryptobankservice\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\Cryptobankservice\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\Cryptobankservice\CryptoBankService1.wsdl" />
     <None Include="Service References\Cryptobankservice\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\Cryptobankservice\CryptoBankService1.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

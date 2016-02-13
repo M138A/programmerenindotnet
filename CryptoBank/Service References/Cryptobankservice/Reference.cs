@@ -37,7 +37,7 @@ namespace CryptoBank.Cryptobankservice {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string accountnumberField;
         
-        private decimal balanceField;
+        private double balanceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string statusField;
@@ -118,7 +118,7 @@ namespace CryptoBank.Cryptobankservice {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
-        public decimal balance {
+        public double balance {
             get {
                 return this.balanceField;
             }
@@ -1146,7 +1146,7 @@ namespace CryptoBank.Cryptobankservice {
         public string accountNumber;
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-        public decimal amount;
+        public double amount;
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
         public bool deposit;
@@ -1154,7 +1154,7 @@ namespace CryptoBank.Cryptobankservice {
         public MakeDepositWIthdrawalRequestBody() {
         }
         
-        public MakeDepositWIthdrawalRequestBody(string accountNumber, decimal amount, bool deposit) {
+        public MakeDepositWIthdrawalRequestBody(string accountNumber, double amount, bool deposit) {
             this.accountNumber = accountNumber;
             this.amount = amount;
             this.deposit = deposit;
@@ -1501,7 +1501,7 @@ namespace CryptoBank.Cryptobankservice {
             return base.Channel.MakeDepositWIthdrawal(request);
         }
         
-        public void MakeDepositWIthdrawal(string accountNumber, decimal amount, bool deposit) {
+        public void MakeDepositWIthdrawal(string accountNumber, double amount, bool deposit) {
             CryptoBank.Cryptobankservice.MakeDepositWIthdrawalRequest inValue = new CryptoBank.Cryptobankservice.MakeDepositWIthdrawalRequest();
             inValue.Body = new CryptoBank.Cryptobankservice.MakeDepositWIthdrawalRequestBody();
             inValue.Body.accountNumber = accountNumber;
@@ -1515,7 +1515,7 @@ namespace CryptoBank.Cryptobankservice {
             return base.Channel.MakeDepositWIthdrawalAsync(request);
         }
         
-        public System.Threading.Tasks.Task<CryptoBank.Cryptobankservice.MakeDepositWIthdrawalResponse> MakeDepositWIthdrawalAsync(string accountNumber, decimal amount, bool deposit) {
+        public System.Threading.Tasks.Task<CryptoBank.Cryptobankservice.MakeDepositWIthdrawalResponse> MakeDepositWIthdrawalAsync(string accountNumber, double amount, bool deposit) {
             CryptoBank.Cryptobankservice.MakeDepositWIthdrawalRequest inValue = new CryptoBank.Cryptobankservice.MakeDepositWIthdrawalRequest();
             inValue.Body = new CryptoBank.Cryptobankservice.MakeDepositWIthdrawalRequestBody();
             inValue.Body.accountNumber = accountNumber;

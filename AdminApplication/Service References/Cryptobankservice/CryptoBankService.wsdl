@@ -39,10 +39,20 @@
           <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="accountnumber" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="balance" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="balance" type="s:double" />
           <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
         </s:sequence>
       </s:complexType>
+      <s:element name="RegisterUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="tns:UserModel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterUserResponse">
+        <s:complexType />
+      </s:element>
       <s:element name="TransferMoney">
         <s:complexType>
           <s:sequence>
@@ -175,6 +185,18 @@
       <s:element name="DeleteUserResponse">
         <s:complexType />
       </s:element>
+      <s:element name="MakeDepositWIthdrawal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accountNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="deposit" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MakeDepositWIthdrawalResponse">
+        <s:complexType />
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="ValidateLoginSoapIn">
@@ -188,6 +210,12 @@
   </wsdl:message>
   <wsdl:message name="GetUserByLoginSoapOut">
     <wsdl:part name="parameters" element="tns:GetUserByLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegisterUserSoapIn">
+    <wsdl:part name="parameters" element="tns:RegisterUser" />
+  </wsdl:message>
+  <wsdl:message name="RegisterUserSoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterUserResponse" />
   </wsdl:message>
   <wsdl:message name="TransferMoneySoapIn">
     <wsdl:part name="parameters" element="tns:TransferMoney" />
@@ -237,6 +265,12 @@
   <wsdl:message name="DeleteUserSoapOut">
     <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
   </wsdl:message>
+  <wsdl:message name="MakeDepositWIthdrawalSoapIn">
+    <wsdl:part name="parameters" element="tns:MakeDepositWIthdrawal" />
+  </wsdl:message>
+  <wsdl:message name="MakeDepositWIthdrawalSoapOut">
+    <wsdl:part name="parameters" element="tns:MakeDepositWIthdrawalResponse" />
+  </wsdl:message>
   <wsdl:portType name="CryptoBankServiceSoap">
     <wsdl:operation name="ValidateLogin">
       <wsdl:input message="tns:ValidateLoginSoapIn" />
@@ -245,6 +279,10 @@
     <wsdl:operation name="GetUserByLogin">
       <wsdl:input message="tns:GetUserByLoginSoapIn" />
       <wsdl:output message="tns:GetUserByLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterUser">
+      <wsdl:input message="tns:RegisterUserSoapIn" />
+      <wsdl:output message="tns:RegisterUserSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="TransferMoney">
       <wsdl:input message="tns:TransferMoneySoapIn" />
@@ -278,6 +316,10 @@
       <wsdl:input message="tns:DeleteUserSoapIn" />
       <wsdl:output message="tns:DeleteUserSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="MakeDepositWIthdrawal">
+      <wsdl:input message="tns:MakeDepositWIthdrawalSoapIn" />
+      <wsdl:output message="tns:MakeDepositWIthdrawalSoapOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="CryptoBankServiceSoap" type="tns:CryptoBankServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -292,6 +334,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetUserByLogin">
       <soap:operation soapAction="http://localhost:46131/CryptoBankWebService/GetUserByLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterUser">
+      <soap:operation soapAction="http://localhost:46131/CryptoBankWebService/RegisterUser" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -371,6 +422,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="MakeDepositWIthdrawal">
+      <soap:operation soapAction="http://localhost:46131/CryptoBankWebService/MakeDepositWIthdrawal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="CryptoBankServiceSoap12" type="tns:CryptoBankServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -385,6 +445,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetUserByLogin">
       <soap12:operation soapAction="http://localhost:46131/CryptoBankWebService/GetUserByLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterUser">
+      <soap12:operation soapAction="http://localhost:46131/CryptoBankWebService/RegisterUser" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -457,6 +526,15 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteUser">
       <soap12:operation soapAction="http://localhost:46131/CryptoBankWebService/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeDepositWIthdrawal">
+      <soap12:operation soapAction="http://localhost:46131/CryptoBankWebService/MakeDepositWIthdrawal" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

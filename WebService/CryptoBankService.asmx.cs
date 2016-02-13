@@ -335,7 +335,7 @@ namespace WebService
         /// <param name="accountNumber">the logged in user account number</param>
         /// <param name="amount">the deposited amount</param>
         [WebMethod]
-        public void MakeDepositWIthdrawal(string accountNumber, decimal amount, bool deposit) {
+        public void MakeDepositWIthdrawal(string accountNumber, double amount, bool deposit) {
             databaseforassignmentEntities1 context = new databaseforassignmentEntities1();
 
             var user = context.Users.SingleOrDefault(u => u.accountnumber == accountNumber);

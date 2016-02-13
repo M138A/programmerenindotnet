@@ -12,7 +12,7 @@ namespace WebService
         public string name { get; set; }
         public string city { get; set; }
         public string accountnumber { get; set; }
-        public decimal balance { get; set; }
+        public double balance { get; set; }
         public string status { get; set; }
 
     }

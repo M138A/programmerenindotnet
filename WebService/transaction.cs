@@ -19,7 +19,7 @@ namespace WebService
         public System.DateTime date { get; set; }
         public string sender { get; set; }
         public string receiver { get; set; }
-        public decimal amount { get; set; }
+        public double amount { get; set; }
     
         public virtual User User { get; set; }
     }

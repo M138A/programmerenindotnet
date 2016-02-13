@@ -5,20 +5,28 @@
 
 
 <h2>Transfer Money</h2>
+
+<br />
+<p>If you want to transfer parts of a bitcoin please use a comma instead of a dot. </p>
+<p>If you use a dot the amount of bitcoins you try to send are always rounded down.</p>
+<p>For example use 0,25 instead of 0.25.</p>
+<br />
+<br />
+
 @Html.Raw(ViewBag.Message)
 @using (Html.BeginForm("ProcessTransfer", "Home"))
 {
     <div id="wrapper" style="clear:both; height:100px;">
         <div style="float:left; height:50px; ">
-            @Html.LabelFor(model => model.receiverAccountNumber, "Account Number receiver")<br/>
+            @Html.LabelFor(model => model.receiverAccountNumber, "Account Number receiver")<br />
             @Html.LabelFor(model => model.receiverAmount, "Amount")<br />
-        
+
             <input type="submit" style="float:left; margin-left:100px;" value="Transfer" /><br />
         </div>
         <div style="float:left; width:100px; height:50px;">
             @Html.TextBoxFor(model => model.receiverAccountNumber)<br />
             @Html.TextBoxFor(model => model.receiverAmount)<br />
-         
+
         </div>
     </div>
 }

@@ -1,0 +1,6 @@
+C:\Users\Jesse\Source\Workspaces\My First Project\CryptoBank\WcfService\bin\WcfService.dll.config
+C:\Users\Jesse\Source\Workspaces\My First Project\CryptoBank\WcfService\bin\WcfService.dll
+C:\Users\Jesse\Source\Workspaces\My First Project\CryptoBank\WcfService\bin\WcfService.pdb
+C:\Users\Jesse\Source\Workspaces\My First Project\CryptoBank\WcfService\obj\Debug\WcfService.csprojResolveAssemblyReference.cache
+C:\Users\Jesse\Source\Workspaces\My First Project\CryptoBank\WcfService\obj\Debug\WcfService.dll
+C:\Users\Jesse\Source\Workspaces\My First Project\CryptoBank\WcfService\obj\Debug\WcfService.pdb

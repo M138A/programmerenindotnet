@@ -3,22 +3,31 @@
 }
 <script src="~/Scripts/angular.js"></script>
 <script src="~/Scripts/MakeDepositController.js"></script>
+<link rel="stylesheet" href="~/Content/Site.css" type="text/css" />
 
 @model CryptoBank.Models.DepositWithdrawalInfo
 <div ng-app="MakeDepositApp">
     <div ng-controller="ConversionController">
-        @using (Html.BeginForm("ConfirmDepositWithdrawal", "MakeDepositWithdrawal", FormMethod.Post)) {
-            @: Amount: @Html.TextBox("textbox", "", new { id = "filled_in_amount", ng_model = "filledInAmount", ng_change = "setText(" + @ViewBag.BitcoinRate + ")"}) <br />
-            @: Currency: @Html.RadioButtonFor(model => model.currency, "€", new {ng_model = "radio", ng_change = "setText( " + @ViewBag.BitcoinRate + ")" })€ @Html.RadioButtonFor(model => model.currency, "B", new {ng_model = "radio", ng_change = "setText(" + @ViewBag.BitcoinRate + ")" })B <br />
-            @Html.TextBoxFor(model => model.amount, new { id = "amount", type="hidden"})
-            @Html.TextBoxFor(model => model.deposit, new { @Value="True", type="hidden"})
-            
-            <input type="submit" value="Submit"/>
+        <fieldset class="fieldset">
+            <legend>Deposit money</legend>
+            <div>
+                In this form you can specify how many bitcoins you want to transfer to your Crypto Account.
+                If you use decimals, please use a point (.) instead of a comma (,).
+            </div>
+            <br />
+            @using (Html.BeginForm("ConfirmDepositWithdrawal", "MakeDepositWithdrawal", FormMethod.Post)) {
+                @: Amount: @Html.TextBox("textbox", "", new { id = "filled_in_amount", ng_model = "filledInAmount", ng_change = "setText(" + @ViewBag.BitcoinRate + ")" }) <br />
+                @: Currency: @Html.RadioButtonFor(model => model.currency, "€", new { ng_model = "radio", ng_change = "setText( " + @ViewBag.BitcoinRate + ")" })€ @Html.RadioButtonFor(model => model.currency, "B", new { ng_model = "radio", ng_change = "setText(" + @ViewBag.BitcoinRate + ")" })B <br />
+                @Html.TextBoxFor(model => model.amount, new { id = "amount", type = "hidden" })
+                @Html.TextBoxFor(model => model.deposit, new { @Value = "True", type = "hidden" })
+                <br />
+                <input type="submit" value="Submit" />
+                <br />
+                <div>{{convertedAmount}}</div>
+                <div>Conversion rate was last updated by @ViewBag.LastUpdated</div>
 
-            <div>{{convertedAmount}}</div>
-            <div>Conversion rate was last updated by @ViewBag.LastUpdated</div>
-
-        }
+            }
+        </fieldset>
     </div>
 </div>
 

@@ -68,7 +68,7 @@
     <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="sender" Type="String" MaxLength="45" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="receiver" Type="String" MaxLength="45" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="amount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="amount" Type="Double" Nullable="false" />
     <NavigationProperty Name="User" Relationship="Self.FK_TempSales_SalesReason" FromRole="transactions" ToRole="User" />
   </EntityType>
   <EntityType Name="User">
@@ -80,7 +80,7 @@
     <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="city" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="accountnumber" Type="String" MaxLength="45" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="balance" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="balance" Type="Double" Nullable="false" />
     <NavigationProperty Name="transactions" Relationship="Self.FK_TempSales_SalesReason" FromRole="User" ToRole="transactions" />
     <Property Name="status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
